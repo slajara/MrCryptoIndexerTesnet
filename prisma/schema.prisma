@@ -1,0 +1,114 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator pothos {
+  provider = "prisma-pothos-types"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Holder {
+  id             String     @id @default(uuid())
+  address        String     @unique
+  holderScore    BigInt     @default(0)
+  MrCryptosOwned MrCrypto[]
+  E7LTokensOwned E7LToken[]
+
+  @@index([address])
+}
+
+model IndexationIteration {
+  id              String    @id @default(uuid())
+  fromBlockNumber BigInt
+  fromDateTime    DateTime
+  toBlockNumber   BigInt
+  toDateTime      DateTime
+  starterAt       DateTime  @default(now())
+  finishedAt      DateTime?
+  secondsElapsed  Int?
+}
+
+model MrCrypto {
+  id                String     @id @default(uuid())
+  tokenId           Int        @unique
+  Owner             Holder     @relation(fields: [ownerId], references: [id])
+  ownerId           String
+  imageURL          String
+  metadataURL       String
+  lastTransferBlock BigInt
+  attBackground     String
+  attClothes        String
+  attType           String
+  attHeadwear       String
+  attEyes           String
+  attMoustache      String
+  rarityScore       Float
+  rarityRanking     Int
+  Transfers         Transfer[]
+  E7LTokensLinked   E7LToken[]
+
+  @@index([ownerId, tokenId, rarityScore, rarityRanking])
+}
+
+model E7L {
+  id               String     @id @default(uuid())
+  name             String     @unique
+  deployedBlock    BigInt
+  contractAddress  String     @unique
+  lastBlockIndexed BigInt
+  imageURL         String
+  Tokens           E7LToken[]
+}
+
+model E7LToken {
+  id              String    @id @default(uuid())
+  e7lTokenId      Int
+  mrcryptoTokenId Int?
+  MrCrypto        MrCrypto? @relation(fields: [mrcryptoTokenId], references: [tokenId])
+  linkedAt        BigInt
+  E7L             E7L       @relation(fields: [e7lId], references: [id], onDelete: Cascade)
+  e7lId           String
+  metadataURL     String
+  imageURL        String
+  ownerId         String
+  Owner           Holder    @relation(fields: [ownerId], references: [id])
+
+  @@unique([e7lId, e7lTokenId])
+  @@index([e7lId, mrcryptoTokenId])
+}
+
+model Transfer {
+  id          String   @id @default(uuid())
+  blockNumber BigInt
+  hash        String
+  from        String
+  to          String
+  tokenId     Int
+  Token       MrCrypto @relation(fields: [tokenId], references: [tokenId])
+  Payment     Payment? @relation(fields: [paymentId], references: [id])
+  paymentId   String?
+}
+
+model Payment {
+  id          String     @id @default(uuid())
+  blockNumber BigInt
+  Transfer    Transfer[]
+  Currency    Currency[]
+}
+
+model Currency {
+  id        String  @id @default(uuid())
+  name      String
+  amount    Float
+  Payment   Payment @relation(fields: [paymentId], references: [id])
+  paymentId String
+
+  @@index([name])
+}

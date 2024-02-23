@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "target": "ES2022",
+    "skipLibCheck": true,
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+    "lib": ["esnext"],
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "viem": ["node_modules/viem"]
+    }
+  },
+  "include": ["src", ".prettier.mjs"],
+  "exclude": ["node_modules"]
+}
