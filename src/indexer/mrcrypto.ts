@@ -12,7 +12,7 @@ import { abiWETH } from "./abis/abi-weth";
 import { metadata } from "./metadata";
 import { Payment } from "@prisma/client";
 
-const MRCRYPTO_DEPLOY_BLOCK: bigint = 44659741n as const;
+const MRCRYPTO_DEPLOY_BLOCK: bigint = 7191535n as const;
 
 const USDC_ADDRESS = "0xe6b8a5CF854791412c1f6EFC7CAf629f5Df1c747" as const;
 const WETH_ADDRESS = "0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889" as const;

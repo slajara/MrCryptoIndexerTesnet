@@ -5,25 +5,25 @@ const prisma = new PrismaClient();
 const e7lList: Prisma.E7LCreateInput[] = [
   {
     name: "Dream Big",
-    deployedBlock: 44698332,
-    lastBlockIndexed: 44698332	,
-    contractAddress: "0x6d989B12D44040727E18AAe609cD0F3510A7eCE3",
+    deployedBlock: 7228369,
+    lastBlockIndexed: 7228369,
+    contractAddress: "0x7ee331c64ba5ebf829e6d9f02c6dcb44dfe86c0e",
     imageURL:
       "https://mrcrypto-sources.s3.eu-central-1.amazonaws.com/3-0/dream-big/Copia+de+DREAM+BIG+B.png",
   },
   {
     name: "Escape Socialism",
-    deployedBlock: 44698809,
-    lastBlockIndexed: 44698809,
-    contractAddress: "0x3F7EcDb60d94721cd1160adB932bE75AD273355c",
+    deployedBlock: 7228399,
+    lastBlockIndexed: 7228399,
+    contractAddress: "0x4e3534f28938180e13a3b9efda08cea0d5d0751c",
     imageURL:
       "https://mrcrypto-sources.s3.eu-central-1.amazonaws.com/3-0/escape-socialism/Copia+de+ESCAPE+Camiseta+3.0.png",
   },
   {
     name: "Mamba Black",
-    deployedBlock: 44698856,
-    lastBlockIndexed: 44698856,
-    contractAddress: "0x8D5992fA6bb42f32cAf260D3b964e2BBbA573CdB",
+    deployedBlock: 7228068,
+    lastBlockIndexed: 7228068,
+    contractAddress: "0x09c56adf48c89586e4965b71bb9c4cb67bd89cea",
     imageURL:
       "https://mrcrypto-sources.s3.eu-central-1.amazonaws.com/3-0/mamba-black/mamba_black.jpg",
   },

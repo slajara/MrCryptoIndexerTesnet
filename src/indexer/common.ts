@@ -5,7 +5,7 @@ import { polygon } from "viem/chains";
 export const BLOCKS_PER_QUERY = 100_000n as const;
 
 export const MRCRYPTO_ADDRESS =
-  "0x175BCa235261dF2f40f639CB5E34856868545A15" as const;
+  "0x7fb498a6a1cd614600e2fff193b514e83a519b0c" as const;
 
 const ALCHEMY_URL = env.RPC_URL;
 const transport = http(ALCHEMY_URL);

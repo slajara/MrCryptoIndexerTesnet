@@ -61,7 +61,7 @@ importers:
         specifier: 9.0.5
         version: 9.0.5
       '@types/node':
-        specifier: 20.9.2
+        specifier: ^20.9.2
         version: 20.9.2
       '@types/ws':
         specifier: ^8.5.9

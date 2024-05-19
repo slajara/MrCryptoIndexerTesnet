@@ -138,7 +138,7 @@ builder.queryType({
           name: "Mr. Crypto by Racksmafia",
           description: "The official RACKS® NFT collection",
           holders: numHolders,
-          address: "0x175BCa235261dF2f40f639CB5E34856868545A15",
+          address: "0x7fb498a6a1cd614600e2fff193b514e83a519b0c", // Coleccion ERC721 Tesnet
           lastSale: `${Number(
             lastSale.Payment!.Currency[0].amount.toFixed(3),
           )} ${lastSale.Payment!.Currency[0].name}`,
